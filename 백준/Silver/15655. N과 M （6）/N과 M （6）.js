@@ -10,18 +10,17 @@ input.sort((a, b) => a-b)
 let temp = []
 let result = ""
 const dfs = (x, num) => {
-    temp.push(input[x]);
-    if(num == count-1){
+    if(num == count){
         result += temp.join(' ') + '\n';
         return
-    }
-    for(let i = x + 1; i< total; i++){
-            dfs(i, num+1);
+    }else{
+        for(let i = x; i < total; i++){
+            temp.push(input[i])
+            dfs(i + 1, num+1);
             temp.pop()
     }
+    }
 }
-for(let i = 0; i< total; i++){
-    dfs(i, 0);
-    temp.pop()
-}
-console.log(result.slice(0,-1))
+
+dfs(0, 0);
+console.log(result)
