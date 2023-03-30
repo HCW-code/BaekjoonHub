@@ -5,9 +5,10 @@ count = int(sys.stdin.readline().strip())
 
 sum = 0
 
-for _ in range(count):
+for i in range(count):
     a, b = map(int, sys.stdin.readline().strip().split())
-    sum += a*b
+    c = a*b
+    sum += c
 
 if total == sum:
     print('Yes')
