@@ -5,7 +5,7 @@ count = int(sys.stdin.readline().strip())
 
 sum = 0
 
-for i in range(count):
+for _ in range(count):
     a, b = map(int, sys.stdin.readline().strip().split())
     sum += a*b
 
