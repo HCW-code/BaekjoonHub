@@ -5,8 +5,8 @@ for testcase in range(n):
     temp = int(input())
     result = [0] * 8
     for i in range(8):
-        while temp >= number[i]:
-            temp -= number[i]
-            result[i] += 1
+        if temp >= number[i]:
+            result[i] += temp//number[i]
+            temp = temp - (temp//number[i]) * number[i]
     print(f'#{testcase+1}')
     print(*result)
