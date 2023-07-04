@@ -1,20 +1,51 @@
-testcase = int(input())
+import java.util.Scanner;
 
-for current_testcase in range(testcase):
-    n, m = map(int, input().split())
-    arr1 = list(map(int, input().split()))
-    arr2 = list(map(int, input().split()))
-    temp = []
-    if n < m:
-        for i in range(m - n + 1):
-            result = 0
-            for j in range(n):
-                result += arr1[j] * arr2[j+i]
-            temp.append(result)
-    else:
-        for i in range(n - m + 1):
-            result = 0
-            for j in range(m):
-                result += arr1[j+i] * arr2[j]
-            temp.append(result)
-    print('#%d %d' %(current_testcase+1, max(temp)))
+class Solution
+{
+	public static void main(String args[]) throws Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		int T;
+		T=sc.nextInt();
+		for(int test_case = 1; test_case <= T; test_case++)
+		{
+			int a = sc.nextInt();
+			int b = sc.nextInt();
+			int[] a_arr = new int[a];
+			int[] b_arr = new int[b];
+			for(int i = 0; i < a; i++) {
+				a_arr[i] = sc.nextInt();
+			}
+			for(int i = 0; i < b; i++) {
+				b_arr[i] = sc.nextInt();
+			}
+
+			if(a < b) {
+				int loop = b - a;
+				int max = 0;
+				int sum = 0;
+				for(int i = 0; i <= loop; i ++) {
+					for(int j = 0; j < a; j++) {
+						sum += a_arr[j] * b_arr[j+i];
+					}
+					if(sum > max) max = sum;
+					sum = 0;
+				}
+				System.out.println("#"+test_case+" "+max);
+			}else {
+				int loop = a - b;
+				int max = 0;
+				int sum = 0;
+				for(int i = 0; i <= loop; i ++) {
+					for(int j = 0; j < b; j++) {
+						sum += b_arr[j] * a_arr[j+i];
+					}
+					if(sum > max) max = sum;
+					sum = 0;
+				}
+				System.out.println("#"+test_case+" "+max);
+			}
+		}
+		sc.close();
+	}
+}
