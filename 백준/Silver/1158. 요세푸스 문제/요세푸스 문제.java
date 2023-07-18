@@ -2,13 +2,10 @@ import java.util.*;
 
 
 public class Main {
-
-
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int count = sc.nextInt();
 		int target = sc.nextInt();
-		int[] arr = new int[count];
 		
 		Queue<Integer> q = new LinkedList<>();
 		for(int i = 0; i < count; i++) {
@@ -22,7 +19,6 @@ public class Main {
 				q.add(q.element());
 				q.remove();
 			}
-			arr[index] = q.element();
 			
 			if(q.size() == 1) {
 				System.out.print(q.element()+">");
@@ -33,11 +29,5 @@ public class Main {
 			q.remove();
 			index++;
 		}
-		
-		
-		
-		
-		
-		
 	}
 }
