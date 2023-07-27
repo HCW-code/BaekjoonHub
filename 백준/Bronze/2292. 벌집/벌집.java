@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.util.*;
 
@@ -12,10 +11,9 @@ public class Main {
 			System.out.println(1);
 		}else {
 			int now = 1;
-			int up = 6;
 			int level = 0;
 			while(now < N) {
-				now += up*level;
+				now += 6*level;
 				level++;			
 			}
 			System.out.println(level);
