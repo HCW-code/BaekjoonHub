@@ -14,15 +14,6 @@ public class Main {
 			this.length = length;
 		}
 	}
-//	7 8
-//	0 0 0 0 0 0 1 1
-//	1 1 0 0 0 0 1 1
-//	1 1 0 0 0 0 0 0
-//	1 1 0 0 0 1 1 0
-//	0 0 0 0 0 1 1 0
-//	0 0 0 0 0 0 0 0
-//	1 1 1 1 1 1 1 1
-	
 	static int count = 1;
 	static int[] dx = { 1, 0, -1, 0 };
 	static int[] dy = { 0, 1, 0, -1 };
@@ -147,7 +138,6 @@ public class Main {
 						al[num].add(t);
 					}
 				}
-				
 				break;
 			}
 			count++;
@@ -174,7 +164,7 @@ public class Main {
 		}
 	}
 	static int[] parents;
-	
+
 	private static void make() {
 		for(int i = 0; i < parents.length; i++) {
 			parents[i] = i;
@@ -204,6 +194,7 @@ public class Main {
 		m = Integer.parseInt(st.nextToken());
 
 		arr = new int[n][m];
+		
 
 		for (int i = 0; i < n; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -225,16 +216,13 @@ public class Main {
 				}
 			}
 		}
+		al = new ArrayList[count]; // 섬 개수 만큼 ArrayList 만들기 
 		
-		al = new ArrayList[count];
 		
 		
 		for (int i = 0; i < count; i++) {
 			al[i] = new ArrayList<>();
 		}
-		
-
-		
 		
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
@@ -242,13 +230,6 @@ public class Main {
 					getLength(i, j, arr[i][j]);
 				}
 			}
-//			for(int k =0; k < al.length; k++) {
-//				for(int p = 0; p < al[k].size(); p++) {
-//					System.out.println(al[k].get(p).from_node + " " +al[k].get(p).num + " " + al[k].get(p).length);
-//				}
-//				System.out.println();
-//				
-//			}
 		}
 		
 		parents = new int[count];
@@ -262,30 +243,14 @@ public class Main {
 			}
 		}
 		
-//		for(int i =0;i < result.size(); i++) {
-//			System.out.println(result.get(i).from_node + " " +result.get(i).num + " " + result.get(i).length);
-//		}
-		
 		result.sort((el1, el2) -> {
 			return el1.length - el2.length;
 		});
-		
-////		
-////		for(int i =0;i < result.size(); i++) {
-////			System.out.println(result.get(i).from_node + " " +result.get(i).num + " " + result.get(i).length);
-////		}
-//		
-//		System.out.println(Arrays.toString(parents));
 		int fin = 0;
-		
 		for(int i =0; i< result.size(); i++) {
-			
-//			System.out.println(Arrays.toString(parents));
 			if(union(result.get(i).from_node, result.get(i).num)) {
 				fin += result.get(i).length;
 			}
-			
-			
 		}
 		
 		boolean f = true;
@@ -301,19 +266,5 @@ public class Main {
 		}else {
 			System.out.println(-1);
 		}
-		
-//		
-//		for (int i = 0; i < al.length; i++) {
-//			for (int j = 0; j < al[i].size(); j++) {
-//				System.out.println(i + " " + al[i].get(j).num + " " + al[i].get(j).length);
-//			}
-//
-//		}
-		
-		
-		
-		
-
 	}
-
 }
