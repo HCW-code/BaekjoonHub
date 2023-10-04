@@ -13,25 +13,21 @@ class Solution {
             int firstNum = square[x1][y2];
             int min = firstNum;
             
-            // 숫자를 우로 이동 (상단)
             for(int i=y2-1; i>=y1; i--){
                 min = Math.min(min, square[x1][i]);
                 square[x1][i+1] = square[x1][i];
             }
 
-            // 숫자를 위로 이동 (좌측)
             for(int i=x1+1; i<=x2; i++){
                 min = Math.min(min, square[i][y1]);
                 square[i-1][y1] = square[i][y1];
             }
 
-            // 숫자를 좌로 이동 (하단)
             for(int i=y1+1; i<=y2; i++){
                 min = Math.min(min, square[x2][i]);
                 square[x2][i-1] = square[x2][i];
             }
 
-            // 숫자를 아래로 이동 (우측)
             for(int i=x2-1; i>=x1; i--){
                 min = Math.min(min, square[i][y2]);
                 square[i+1][y2] = square[i][y2];
